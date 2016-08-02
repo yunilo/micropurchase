@@ -10,7 +10,31 @@ Feature: Admin view needs attention auctions
   Scenario: Navigating to the needs attention auctions dashboard
     Given I visit the auctions section of the admin panel
     When I click on the "Needs Attention" link
-    Then I should be on the Needs Attention page 
+    Then I should be on the Needs Attention page
+
+  Scenario: Admin sees data for draft auctions on the Needs Attention page
+    Given there is an unpublished auction
+    And I visit the Needs Attention page
+    Then I should see a section labeled "Drafts"
+    And I should see a table listing all Draft auctions
+
+    And in that table I should see a column labeled Title
+    And in that column I should see the title for each auction
+
+    And in that table I should see a column labeled Starting Date
+    And in that column I should see the starting date for each auction
+
+    And in that table I should see a column labeled Ending Date
+    And in that column I should see the ending date for each auction
+
+    And in that table I should see a column labeled Delivery Deadline
+    And in that column I should see the delivery deadline for each auction
+
+    And in that table I should see a column labeled C2 Request
+    And in that column I should see the C2 request state for each auction
+
+    And in that table I should see a column labeled Action
+    And in that column I should see the edit link for each auction
 
   Scenario: Viewing the needs attention auctions dashboard
     Given there is a complete and successful auction

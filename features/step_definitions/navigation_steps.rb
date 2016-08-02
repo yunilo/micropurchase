@@ -75,6 +75,10 @@ When(/^I visit the admin closed auctions page$/) do
 end
 
 Given(/^I visit the auctions section of the admin panel$/) do
+  visit admin_auctions_path
+end
+
+Given(/^I visit the Needs Attention page$/) do
   visit admin_auctions_needs_attention_path
 end
 
